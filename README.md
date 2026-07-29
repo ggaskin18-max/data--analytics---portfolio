@@ -57,3 +57,6 @@ The analysis indicates higher attrition among employees in their late twenties a
 ### 4. Continue monitoring workforce trends.
 
 HR should implement an interactive dashboard to monitor employee attrition over time, enabling management to identify emerging trends and evaluate the effectiveness of retention initiatives.
+
+SQL nippet: 
+![alt text](image.png)
