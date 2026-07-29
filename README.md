@@ -37,3 +37,23 @@ The insights generated from this analysis will support evidence-based decision-m
 - Laboratory Technicians experienced the highest attrition among job roles.
 - Employees in their late twenties and early thirties showed the highest number of departures.
 - Male employees accounted for a higher number of attrition cases than female employees.
+
+## Recommendations
+
+Based on the findings, the following actions are recommended:
+
+### 1. Prioritise retention within the Research & Development department.
+
+As the department with the highest employee turnover, management should investigate workload, employee engagement, career progression opportunities, and leadership practices to understand the underlying causes of attrition.
+
+### 2. Develop targeted retention strategies for high-risk job roles.
+
+Laboratory Technicians, Sales Executives, and Research Scientists should be prioritised for retention initiatives such as career development programmes, mentoring, recognition schemes, and competitive reward packages.
+
+### 3. Strengthen career development for early and mid-career employees.
+
+The analysis indicates higher attrition among employees in their late twenties and early thirties. Providing structured career pathways, professional development opportunities, and regular performance discussions may improve employee retention.
+
+### 4. Continue monitoring workforce trends.
+
+HR should implement an interactive dashboard to monitor employee attrition over time, enabling management to identify emerging trends and evaluate the effectiveness of retention initiatives.
