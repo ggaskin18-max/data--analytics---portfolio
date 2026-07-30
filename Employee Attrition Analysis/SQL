@@ -41,7 +41,6 @@ GROUP BY Attrition;
 
 ![alt text](image-4.png)
 
-(
 
 ### Key Finding
 
@@ -60,6 +59,7 @@ Vertex Healthcare Group has:
 Business Question
 
 Which departments experience the highest employee attrition?
+
 
 ### Business Purpose
 
