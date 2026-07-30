@@ -13,10 +13,75 @@ How many employees are included in the dataset?
 Understanding the total workforce provides the foundation for all subsequent analyses. It establishes the population size used to calculate workforce metrics such as the employee attrition rate.
 
  ### SQL QUERY
+ ```
  SELECT COUNT(*) AS Total_Employees
  FROM employee_attrition;
+ ```
+![alt text](image-18.png)
 
-![alt text](image-2.png)
+```
+SELECT Attrition,
+    COUNT(*) AS Employee_Count
+FROM employee_attrition
+GROUP BY Attrition;
+```
+![alt text](image-12.png)
+
+```
+SELECT
+    ROUND (
+        SUM (CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END)
+        / COUNT(*) * 100,
+        2
+    ) AS Attrition_Rate_Percentage
+FROM employee_attrition;
+```
+![alt text](image-13.png)
+
+```
+SELECT 
+    Department,
+    COUNT(*) AS Employees_Left
+FROM employee_attrition
+WHERE Attrition = 'Yes'
+GROUP BY Department
+ORDER BY Employees_Left DESC;
+```
+![alt text](image-14.png)
+
+```
+SELECT
+    JobRole,
+    COUNT(*) AS Employees_Left
+FROM employee_attrition
+WHERE Attrition = 'Yes'
+GROUP BY JobRole
+ORDER BY Employees_Left DESC;
+```
+![alt text](image-15.png)
+
+```
+SELECT 
+    Age,
+    COUNT(*) AS Employees_Left
+FROM employee_attrition
+WHERE Attrition = 'Yes'
+GROUP BY Age
+ORDER BY Employees_Left DESC
+LIMIT 10;
+```
+![alt text](image-16.png)
+
+```
+SELECT 
+    Gender,
+    COUNT(*) AS Employee_Left
+FROM employee_attrition
+WHERE Attrition = 'Yes'
+GROUP BY Gender
+ORDER BY Employee_Left DESC;
+```
+![alt text](image-17.png)
 
 ### Key Findings
 
@@ -32,41 +97,41 @@ What is the overall employee attrition rate?
 The employee attrition rate is a key HR performance indicator that measures workforce turnover. It enables management to monitor employee retention and assess whether turnover is increasing or decreasing over time.
 
 ### SQL Query
-
+```
 SELECT
     Attrition,
     COUNT(*) AS Employee_Count
 FROM employee_attrition
 GROUP BY Attrition;
-
-![alt text](image-4.png)
+```
+![alt text](image-12.png)
 
 
 ### Key Finding
 
 Vertex Healthcare Group has:
 
-1,470 total employees
-237 employees who left
-1,233 employees who stayed
+- 1,470 total employees
+- 237 employees who left
+- 1,233 employees who stayed
 
 ### Attrition  Rate
 
-
-
+TBA
 
 ## Section 3:Department Analysis
 Business Question
 
-Which departments experience the highest employee attrition?
+*Which departments experience the highest employee attrition?*
 
+TBA
 
 ### Business Purpose
 
-Identifying departments with higher employee turnover enables management to focus retention strategies where they are likely to have the greatest impact.
+Identifying departments with higher employee turnover, enables management to focus retention strategies where they are likely to have the greatest impact.
 
 ### SQL Query
-
+```
 SELECT
     Department,
     COUNT(*) AS Employees_Left
@@ -74,8 +139,8 @@ FROM employee_attrition
 WHERE Attrition = 'Yes'
 GROUP BY Department
 ORDER BY Employees_Left DESC;
-
-![alt text](image-8.png)
+```
+![alt text](image-14.png)
 
 
 
@@ -87,13 +152,14 @@ The Research & Development department experienced the highest employee attrition
 ## Section 4: Job Role Analysis
 ### Business Question
 
-Which job roles experience the highest employee attrition?
+*Which job roles experience the highest employee attrition?*
 
 ### Business Purpose
 
 Understanding turnover by job role helps identify positions that may require improvements in recruitment, career progression, employee engagement, or compensation.
 
 ## SQL Query
+```
 SELECT
     JobRole,
     COUNT(*) AS Employees_Left
@@ -101,24 +167,24 @@ FROM employee_attrition
 WHERE Attrition = 'Yes'
 GROUP BY JobRole
 ORDER BY Employees_Left DESC;
-
- ![alt text](image-9.png)
+```
+ ![alt text](image-15.png)
 
 ### Key Finding
 The Laboratory Technician role experienced the highest employee attrition (62 employees), followed by Sales Executives (57) and Research Scientists (47). These roles should be prioritized for retention strategies, as they account for the largest number of employee departures
 (Interpret the findings.)
 
-Section 5: Age Analysis
-Business Question
+## Section 5: Age Analysis
+### Business Question
 
-Which age groups experience the highest employee attrition?
+*Which age groups experience the highest employee attrition?*
 
-Business Purpose
+### Business Purpose
 
 Analysing employee turnover by age helps identify demographic trends and supports workforce planning and employee development initiatives.
 
-SQL Query
-
+### SQL Query
+```
 SELECT
     Age,
     COUNT(*) AS Employees_Left
@@ -127,25 +193,25 @@ WHERE Attrition = 'Yes'
 GROUP BY Age
 ORDER BY Employees_Left DESC
 LIMIT 10;
-
-
+```
 ![alt text](image-10.png)
 
-Key Finding
+### Key Finding
 
 Employees aged 29 and 31 recorded the highest number of resignations, with 18 employees leaving in each age group. Employees aged 28 followed with 14 departures, while ages 26 and 33 each recorded 12 departures. This suggests that attrition is concentrated among employees in their late 20s and early 30s.
 
 
 ## Section 6: Gender Analysis
-Business Question
+### Business Question
 
-Does employee attrition differ by gender?
+*Does employee attrition differ by gender?*
 
-Business Purpose
+### Business Purpose
 
 Comparing employee turnover by gender helps HR understand workforce trends and determine whether further investigation into retention patterns is required.
 
 ### SQL Query
+```
 SELECT
     Gender,
     COUNT(*) AS Employees_Left
@@ -153,8 +219,8 @@ FROM employee_attrition
 WHERE Attrition = 'Yes'
 GROUP BY Gender
 ORDER BY Employees_Left DESC;
-
-![alt text](image-11.png)
+```
+![alt text](image-17.png)
 
 ### Key Finding
 
@@ -170,9 +236,8 @@ These findings suggest that management should prioritize employee retention init
 
 
 ## 6. Recommendations
-  - Develop targeted retention strategies for the Research & Development department.
+- Develop targeted retention strategies for the Research & Development department.
 - Improve career progression opportunities for Laboratory Technicians.
 - Introduce mentorship and professional development programmes for employees aged 26–33 years.
 - Conduct regular employee satisfaction surveys to identify factors contributing to turnover.
 - Review compensation, workload, and work-life balance policies to improve employee retention.
-
