@@ -1,0 +1,132 @@
+SQL Analysis
+Overview
+
+This section documents the SQL analysis undertaken to investigate employee attrition at Vertex Healthcare. Each query was designed to answer a specific business question, with the findings later used to support the Excel analysis and Power BI dashboard.
+
+Section 1: Workforce Overview
+Business Question
+
+How many employees are included in the dataset?
+
+Business Purpose
+
+Understanding the total workforce provides the foundation for all subsequent analyses. It establishes the population size used to calculate workforce metrics such as the employee attrition rate.
+
+SQL Query
+
+(You will write the COUNT(*) query here.)
+
+📷 Screenshot
+
+(Insert screenshot of the query and its output.)
+
+Key Finding
+
+Write your result here.
+
+Example:
+
+The dataset contains 1,470 employee records, representing the total workforce analysed.
+
+Section 2: Employee Attrition KPI
+Business Question
+
+What is the overall employee attrition rate?
+
+Business Purpose
+
+The employee attrition rate is a key HR performance indicator that measures workforce turnover. It enables management to monitor employee retention and assess whether turnover is increasing or decreasing over time.
+
+SQL Query
+
+(Write your attrition rate query.)
+
+📷 Screenshot
+
+(Insert screenshot.)
+
+Key Finding
+
+(Write your interpretation.)
+
+Section 3: Department Analysis
+Business Question
+
+Which departments experience the highest employee attrition?
+
+Business Purpose
+
+Identifying departments with higher employee turnover enables management to focus retention strategies where they are likely to have the greatest impact.
+
+SQL Query
+
+(Write the department query.)
+
+📷 Screenshot
+
+Key Finding
+
+(Interpret your findings.)
+
+Section 4: Job Role Analysis
+Business Question
+
+Which job roles experience the highest employee attrition?
+
+Business Purpose
+
+Understanding turnover by job role helps identify positions that may require improvements in recruitment, career progression, employee engagement, or compensation.
+
+SQL Query
+
+(Write the query.)
+
+📷 Screenshot
+
+Key Finding
+
+(Interpret the findings.)
+
+Section 5: Age Analysis
+Business Question
+
+Which age groups experience the highest employee attrition?
+
+Business Purpose
+
+Analysing employee turnover by age helps identify demographic trends and supports workforce planning and employee development initiatives.
+
+SQL Query
+
+(Write the query.)
+
+📷 Screenshot
+
+Key Finding
+
+(Interpret the findings.)
+
+Section 6: Gender Analysis
+Business Question
+
+Does employee attrition differ by gender?
+
+Business Purpose
+
+Comparing employee turnover by gender helps HR understand workforce trends and determine whether further investigation into retention patterns is required.
+
+SQL Query
+
+(Write the query.)
+
+📷 Screenshot
+
+Key Finding
+
+(Interpret the findings.)
+
+SQL Analysis Summary
+
+Summarise the overall outcome of your SQL work in one paragraph. For example:
+
+The SQL analysis provided a structured exploration of employee attrition at Vertex Healthcare by calculating key workforce metrics and identifying patterns across departments, job roles, age groups, and gender. These findings formed the analytical foundation for the Excel analysis and the interactive Power BI dashboard, enabling data-driven recommendations to improve employee retention
