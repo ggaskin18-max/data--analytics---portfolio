@@ -194,7 +194,7 @@ GROUP BY Age
 ORDER BY Employees_Left DESC
 LIMIT 10;
 ```
-![alt text](image-10.png)
+![alt text](image-16.png)
 
 ### Key Finding
 
