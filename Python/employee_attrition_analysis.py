@@ -22,5 +22,10 @@ df.info()
 # Check for missing values
 print(df.isnull().sum())
 
+# Analyse employee attrition
+attrition_counts = df["Attrition"].value_counts()
+
+print("\nEmployee Attrition:")
+print(attrition_counts)
 
 
