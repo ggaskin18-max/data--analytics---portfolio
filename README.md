@@ -102,6 +102,8 @@ I began by cleaning and validating the dataset in Google Sheets, checking for mi
 I then used MySQL to investigate sales and profitability across product categories, sub-categories, customer segments, regions and discount levels.
 
 Finally, I developed a two-page interactive Power BI dashboard to communicate the findings through financial KPIs and business-focused visualisations.
+![alt text](image.png)
+![alt text](image-1.png)
 
 #### Key Findings
 
