@@ -1,0 +1,183 @@
+
+# NorthStar Logistics Group
+## SQL Data Cleaning and Quality Validation Report
+
+**Project:** Supply Chain and Logistics Performance Analysis  
+**Dataset:** NorthStar Logistics — 5,000 Practice Orders  
+**Tools:** MySQL Workbench 8.0, SQL, Visual Studio Code  
+**Project stage:** Data Preparation and Quality Validation
+
+### 1. Project Overview
+
+The NorthStar Logistics project examines logistics operations using a practice dataset containing 5,000 orders. Before conducting business analysis and developing Power BI dashboards, SQL was used to assess the quality, consistency and reliability of the imported data.
+
+The purpose of this stage was to identify potential data-quality issues that could affect subsequent calculations, operational performance measures and business insights.
+
+### 2. Data Preparation
+
+The dataset was downloaded from Google Sheets as a CSV file and imported into MySQL Workbench.
+
+The imported table contained fields relating to:
+
+- Order identification and order dates
+- Geographic regions
+- Suppliers and shipping methods
+- Product categories and order values
+- Shipping costs
+- Promised and actual delivery dates
+- Delivery status
+- Customer satisfaction ratings
+
+SQL queries were executed to validate the imported records before beginning exploratory analysis.
+
+### 3. SQL Data Quality Checks
+
+#### 3.1 Duplicate Order ID Validation
+
+**Objective:** Identify order IDs appearing more than once in the dataset.
+
+```sql
+SELECT
+    order_id,
+    COUNT(*) AS duplicate_count
+FROM northstar_logistics
+GROUP BY order_id
+HAVING COUNT(*) > 1;
+```
+
+**Result:** No duplicate order IDs were returned.
+
+**Interpretation:** The validation did not identify repeated order IDs. This reduces the risk of double-counting orders when calculating logistics performance metrics.
+
+#### 3.2 Missing Value Validation
+
+**Objective:** Identify missing or blank values in important fields, including order IDs, regions and shipping methods.
+
+```sql
+SELECT
+    SUM(
+        CASE
+            WHEN order_id IS NULL
+              OR TRIM(order_id) = ''
+            THEN 1 ELSE 0
+        END
+    ) AS missing_order_ids,
+
+    SUM(
+        CASE
+            WHEN region IS NULL
+              OR TRIM(region) = ''
+            THEN 1 ELSE 0
+        END
+    ) AS missing_regions,
+
+    SUM(
+        CASE
+            WHEN shipping_method IS NULL
+              OR TRIM(shipping_method) = ''
+            THEN 1 ELSE 0
+        END
+    ) AS missing_shipping_methods
+
+FROM northstar_logistics;
+```
+
+**Result:** Zero missing values were reported for the fields checked.
+
+**Interpretation:** These fields were complete, supporting more reliable order identification, regional comparisons and shipping-method analysis.
+
+#### 3.3 Shipping Cost Validation
+
+**Objective:** Identify negative shipping costs that could distort financial and operational analysis.
+
+```sql
+SELECT
+    COUNT(*) AS invalid_shipping_costs
+FROM northstar_logistics
+WHERE shipping_cost_gbp < 0;
+```
+
+**Result:** 0 invalid shipping costs.
+
+**Interpretation:** No negative shipping costs were identified, supporting the use of this field in subsequent cost analysis.
+
+#### 3.4 Customer Rating Validation
+
+**Objective:** Confirm that customer satisfaction ratings fall within the expected range of 1 to 5.
+
+```sql
+SELECT
+    COUNT(*) AS invalid_ratings
+FROM northstar_logistics
+WHERE customer_rating < 1
+   OR customer_rating > 5;
+```
+
+**Result:** 0 invalid ratings.
+
+**Interpretation:** All non-null customer ratings passed the range validation. This supports subsequent customer satisfaction analysis.
+
+#### 3.5 Delivery Date Validation
+
+**Objective:** Identify records where the actual delivery date occurred before the order date.
+
+```sql
+SELECT
+    COUNT(*) AS invalid_delivery_dates
+FROM northstar_logistics
+WHERE actual_delivery_date < order_date;
+```
+
+**Result:** 0 invalid delivery dates.
+
+**Interpretation:** No records were identified where delivery preceded the order date. This supports the chronological consistency of the checked delivery records.
+
+### 4. Summary of Validation Results
+
+| Data Quality Check | Result | Status |
+|---|---|---|
+| Duplicate order IDs | 0 | Passed |
+| Missing values in checked fields | 0 | Passed |
+| Negative shipping costs | 0 | Passed |
+| Customer ratings outside 1–5 | 0 | Passed |
+| Actual delivery before order date | 0 | Passed |
+
+### 5. Key Findings
+
+The SQL validation checks did not identify issues in the tested fields.
+
+The checks provide evidence that the imported dataset is suitable for progressing to exploratory data analysis, subject to further checks of any fields not yet validated.
+
+No data modifications were required based on these findings. The work completed at this stage focused on **data validation rather than correcting or deleting records**.
+
+### 6. Business Relevance
+
+Data quality is essential in logistics analytics because inaccurate records can affect operational reporting and business decisions.
+
+The validation stage helps establish confidence in subsequent measures such as:
+
+- Total order volumes
+- Shipping expenditure
+- Delivery performance
+- Regional logistics performance
+- Customer satisfaction
+
+Completing these checks before business analysis also creates a reproducible record of how the dataset was assessed.
+
+### 7. Next Stage: Exploratory Data Analysis
+
+Following data validation, the project will progress to SQL-based exploratory analysis.
+
+The next stage will investigate delivery delays, shipping costs, regional performance, supplier performance and customer satisfaction.
+
+Findings will subsequently inform the development of Power BI dashboards and business recommendations.
+
+### 8. Conclusion
+
+SQL was used to conduct structured data-quality checks on the NorthStar Logistics dataset.
+
+The validation identified no duplicate order IDs, missing values in the selected fields, negative shipping costs, out-of-range customer ratings or delivery dates occurring before order dates.
+
+This stage demonstrates the use of SQL for practical data preparation, validation and analytical quality assurance.
+
+The completed checks provide a documented foundation for the next phase of the NorthStar Logistics performance analysis.
